@@ -1,24 +1,37 @@
 function getComputerChoice() {
     let choices = ["rock", "paper", "scissors"];
     let randomChoice = Math.floor(Math.random() * choices.length);
-    console.log(randomChoice);
     let computerChoice = choices[randomChoice];
     console.log(computerChoice)
     return computerChoice;
 }
 
-function playerVsComputer (playerSelection, computerSelection) {
+function playRound (playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
     console.log(computerSelection);
     console.log(playerSelection);
     if (computerSelection == playerSelection){
-        document.write("It's a draw!");
+        return "It's a draw.";
     } else if (playerSelection == "paper" && computerSelection == "rock" || playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "paper") {
-        document.write("Yay, you won!");
+        return "Yay, you won!";
     } else {
-        document.write("Sorry, you lose :(");
+        return "Sorry, you lose.";
     }
 }
 
-playerVsComputer();
+function game(){
+    let playerScore = 0;
+    let outcome;
+    for (let i=0; i < 5; i++){
+        outcome = playRound();
+        console.log(outcome);
+        if (outcome == "Yay, you won!"){
+            playerScore += 1;
+        }
+        console.log(playerScore);
+    }
+    return playerScore;
+}
+
+game();
