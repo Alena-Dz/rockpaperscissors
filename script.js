@@ -13,7 +13,9 @@ function playRound (playerSelection, computerSelection) {
     console.log(playerSelection);
     if (computerSelection == playerSelection){
         return "It's a draw.";
-    } else if (playerSelection == "paper" && computerSelection == "rock" || playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "paper") {
+    } else if (playerSelection == "paper" && computerSelection == "rock" || 
+               playerSelection == "rock" && computerSelection == "scissors" || 
+               playerSelection == "scissors" && computerSelection == "paper") {
         return "Yay, you won!";
     } else {
         return "Sorry, you lose.";
